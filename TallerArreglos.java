@@ -35,38 +35,57 @@ public class TallerArreglos {
     }
 
     // Método para encontrar el número mayor
-    public static int encontrarMayor(int[] array) {
+    public static int encontrarMayor(int[] arr) {
         // Implementa este método
-        int max = array[0];
-
-        for (int i =0 ; i < array.length; i++){
-            if (array[i] > max ){
-                max = array[i];
-
+        int mayor = arr[0];
+        for (int numero : arr){
+            if (numero > mayor){
+                mayor = numero;
             }
-
         }
-        return max;
+        return mayor;
     }
 
     // Método para calcular el promedio
-    public static double calcularPromedio(int[] array) {
+    public static double calcularPromedio(int[] arr) {
         // Implementa este método
-        int sum = 0 ;
-        for (int i =0 ; i <array.length;i++  ){
-            sum += array[i] ;
+        int suma = 0;
+        for (int numero : arr) {
+            suma += numero;
         }
-        return (double) sum / array.length;
+        return (double) suma / arr.length;
     }
 
     // Método para invertir el arreglo
     public static void invertirArreglo(int[] arr) {
         // Implementa este método
+        int i = 0, j = arr.length - 1;
+        while (i<j) {
+            int temp = arr [i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
+        }
     }
 
     // Método para ordenar el arreglo (puedes usar el algoritmo de burbuja)
     public static void ordenarArreglo(int[] arr) {
         // Implementa este método
+        boolean swapped;
+        for (int i = 0; i < arr.length - 1; i++) {
+            swapped = false;
+            for (int j = 0; j < arr.length - 1 - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    swapped = true;
+                }
+            }
+            if (!swapped) break;
+        }
     }
 }
+
 
